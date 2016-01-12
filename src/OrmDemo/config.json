@@ -1,0 +1,7 @@
+{
+  "Data": {
+    "DefaultConnection": {
+      "ContactContext": "Data Source=C:\\MyApp\\SQLiteTest.db3;Version=3;"
+    }
+  }
+}

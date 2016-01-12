@@ -1,0 +1,51 @@
+﻿@model OrmDemo.Models.Contact
+@{
+// ViewBag.Title = "Home Page";
+}
+
+<h2>Add New Contact</h2>
+
+@using (Html.BeginForm("Add", "Contacts", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.Partial("_OperationResult");
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="col-sm-10">
+            @Html.EditorFor(model => model.Name)
+            <span class="text-warning">@Html.ValidationMessageFor(model => model.Name)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.Dob)
+        </div>
+        <div class="col-sm-10">
+            @Html.EditorFor(model => model.Dob)
+            <span class="text-warning">@Html.ValidationMessageFor(model => model.Dob)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-2">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.Phone)
+            <span class="text-warning">@Html.ValidationMessageFor(model => model.Phone)</span>
+        </div>
+    </div>
+
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+            <input type="submit" name="submit" />
+    </div>
+
+}
+
+
+    

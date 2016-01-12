@@ -1,0 +1,16 @@
+﻿@model OrmDemo.Models.OperationResult<string>
+@if (Model != null)
+{
+    @if (Model.IsSuccessful)
+    {
+        <p class="text-success">
+            @Model.Message
+        </p>
+    }
+    else
+    {
+        <p class="text-danger">
+            @Model.Message
+        </p>
+    }
+}
