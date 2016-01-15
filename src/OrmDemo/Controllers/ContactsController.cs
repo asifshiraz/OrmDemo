@@ -18,6 +18,7 @@ namespace OrmDemo.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var result = this.contactsRepository.GetContacts();
             return View();
         }
 

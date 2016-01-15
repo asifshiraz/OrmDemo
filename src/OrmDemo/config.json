@@ -1,7 +1,7 @@
 {
   "Data": {
     "DefaultConnection": {
-      "ContactContext": "Data Source=C:\\MyApp\\SQLiteTest.db3;Version=3;"
+      "OrmDemoDb": "Server=.\\DESKTOP-2MU7VOT\\SQLEXPRESS;Initial Catalog=OrmDemoDb;Trusted_Connection=Yes;Application Name=.NET SQLClient Data Provider"
     }
   }
 }
