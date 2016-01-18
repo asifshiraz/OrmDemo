@@ -9,9 +9,9 @@ namespace OrmDemo.Interfaces
     public interface IContactRepository
     {
         OperationResult<Contact> AddContact(Contact contact);
-        OperationResult<Guid> DeleteContact(Guid id);
+        OperationResult<int> DeleteContact(int id);
         OperationResult<Contact[]> GetContacts();
-        OperationResult<Contact> GetContact(Guid id);
-        OperationResult<Contact> UpdateContact(Contact contact);
+        OperationResult<Contact> GetContact(int id);
+        OperationResult<int> UpdateContact(Contact contact);
     }
 }

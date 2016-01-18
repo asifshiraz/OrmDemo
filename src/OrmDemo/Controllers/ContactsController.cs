@@ -19,20 +19,41 @@ namespace OrmDemo.Controllers
         public IActionResult Index()
         {
             var result = this.contactsRepository.GetContacts();
-            return View();
+            return View(result.Data);
         }
 
-        public IActionResult Add()
+        public IActionResult Edit(string id)
         {
-            return View();
+            var result = new OperationResult<Contact>();
+            var contactId = 0;
+            int.TryParse(id, out contactId);
+            if (contactId != 0)
+                result = contactsRepository.GetContact(contactId);
+            else
+                result.Data = new Contact();
+            return View(result.Data);
+        }
+
+        public IActionResult Remove(string id)
+        {
+            int contactId = 0;
+            int.TryParse(id, out contactId);
+            contactsRepository.DeleteContact(contactId);
+            return RedirectToAction("Index");
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public IActionResult Add(Contact contact)
+        public IActionResult Edit(Contact contact)
         {
             if (ModelState.IsValid)
-                ViewBag.OperationResult = this.contactsRepository.AddContact(contact);
-            return View();
+            {
+                if (contact.Id == 0)
+                    ViewBag.OperationResult = this.contactsRepository.AddContact(contact);
+                else
+                    ViewBag.OperationResult = this.contactsRepository.UpdateContact(contact);
+            }
+                
+            return RedirectToAction("Index");
         }
     }
 }

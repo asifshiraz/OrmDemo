@@ -43,6 +43,8 @@ namespace OrmDemo
             // services.AddWebApiConventions();
             services.AddInstance<IConfiguration>(Configuration);
             services.AddTransient<IContactRepository, ContactRepository>();
+            services.AddOptions();
+            services.Configure<ConnectionOptions>(Configuration);
             services.AddTransient<Massive.IConnectionStringProvider, vNextConnectionStringProvider>();
         }
 

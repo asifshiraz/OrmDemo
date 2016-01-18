@@ -10,9 +10,9 @@ namespace OrmDemo.Models
     {
         public Contact()
         {
-            this.Id = Guid.NewGuid();
         }
-        public Guid Id { get; set; }
+
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Contact Name is required")]
         public string Name { get; set; }
@@ -24,5 +24,10 @@ namespace OrmDemo.Models
         [Required(ErrorMessage = "Contact Phone is required")]
         [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{10,15}$", ErrorMessage = "Please enter valid phone number")]
         public string Phone { get; set; }
+
+        public object ForInsert()
+        {
+            return new { Name = this.Name, Dob = this.Dob, Phone = this.Phone };
+        }
     }
 }

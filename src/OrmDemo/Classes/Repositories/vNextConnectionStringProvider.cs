@@ -9,6 +9,7 @@ namespace OrmDemo.Classes.Repositories
     public class vNextConnectionStringProvider : Massive.IConnectionStringProvider
     {
         private IConfiguration configuration;
+
         public vNextConnectionStringProvider(IConfiguration configuration)
         {
             this.configuration = configuration;
@@ -16,7 +17,8 @@ namespace OrmDemo.Classes.Repositories
 
         public string GetConnectionString(string connectionStringName)
         {
-            return configuration[connectionStringName];
+            //ignore name for now
+            return this.configuration[connectionStringName];
         }
 
         public string GetProviderName(string connectionStringName)

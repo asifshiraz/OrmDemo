@@ -1,7 +1,3 @@
 {
-  "Data": {
-    "DefaultConnection": {
-      "OrmDemoDb": "Server=.\\DESKTOP-2MU7VOT\\SQLEXPRESS;Initial Catalog=OrmDemoDb;Trusted_Connection=Yes;Application Name=.NET SQLClient Data Provider"
-    }
-  }
+  "ConnectionString": "Server=198.38.83.33;Database=asifshir_hoopoedb;User ID=asifshir_ormdemo;Password=ormdemo123"
 }
